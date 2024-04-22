@@ -5,7 +5,21 @@ const meta = {
     title: 'Button',
     component: Button,
     args: {
-        children: 'Button'
+        children: 'Button',
+        variant: 'primary',
+        size: 'medium',
+        disabled: false,
+    },
+    argTypes: {
+        disabled: {
+            control: 'boolean',
+        },
+        variant: {
+            control: 'select',
+        },
+        size: {
+            control: 'select',
+        }
     }
 } satisfies Meta;
 
@@ -13,15 +27,12 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Primary: Story = {
-    args: {
-        variant: 'primary'
-    },
-};
+export const Primary: Story = {};
 
 export const Secondary: Story = {
     args: {
-        variant: 'secondary'
+        variant: 'secondary',
+        className: 'mb-6 py-8'
     },
 };
 
@@ -30,3 +41,38 @@ export const Destructive: Story = {
         variant: 'destructive'
     },
 };
+
+export const Small: Story = {
+    args: {
+        size: 'small'
+    }
+};
+
+export const Medium: Story = {}
+
+export const Dark: Story = {
+    parameters: {
+        themes: {
+            themeOverride: 'dark'
+        }
+    }
+}
+
+export const Mobile: Story = {
+    parameters: {
+        viewport: {
+            defaultViewport: 'mobile1'
+        }
+    }
+}
+
+export const MobileDark: Story = {
+    parameters: {
+        themes: {
+            themeOverride: 'dark'
+        },
+        viewport: {
+            defaultViewport: 'mobile1'
+        }
+    }
+}
